@@ -6,3 +6,6 @@
 #
 # Pods/
 
+TFUtils/DerivedData
+TFUtils/TFUtils.xcodeproj/xcuserdata
+TFUtils/TFUtils.xcodeproj/project.xcworkspace/xcuserdata
