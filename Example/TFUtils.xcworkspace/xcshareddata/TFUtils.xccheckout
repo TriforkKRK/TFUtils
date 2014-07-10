@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>6E8E797A-B3CB-4F6F-8DB5-FE2B6DD05412</string>
+	<key>IDESourceControlProjectName</key>
+	<string>TFUtils</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>AF4D5EA7-123D-4C75-8ED8-6D4BEF6CBDCA</key>
+		<string>https://github.com/TriforkKRK/TFUtils</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Example/TFUtils.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>AF4D5EA7-123D-4C75-8ED8-6D4BEF6CBDCA</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/TriforkKRK/TFUtils</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>AF4D5EA7-123D-4C75-8ED8-6D4BEF6CBDCA</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>AF4D5EA7-123D-4C75-8ED8-6D4BEF6CBDCA</string>
+			<key>IDESourceControlWCCName</key>
+			<string>TFUtils</string>
+		</dict>
+	</array>
+</dict>
+</plist>
