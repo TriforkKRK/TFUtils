@@ -1,0 +1,10 @@
+target 'TFUtils', :exclusive => true do
+  pod "TFUtils", :path => "../"
+end
+
+target 'Tests', :exclusive => true do
+  pod "TFUtils", :path => "../"
+
+  pod 'Specta', '~> 0.2.1'
+  pod 'Expecta'
+end
