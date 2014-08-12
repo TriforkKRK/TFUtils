@@ -42,14 +42,14 @@ const NSString * kCategoryName = @"tf_transitionIsolated";
 {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didBeginAppearanceTransition:) name:UIViewControllerBeginAppearanceTransitionNotification object:nil];
-//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didEndAppearanceTansition:) name:UIViewControllerEndAppearanceTransitionNotification object:nil];
-//  due to potential Apple Bug thah causes the endAppearanceTransition not to be callend on UINavigationController childViewControllers
-//  we have to use will/did appear callbacks - however this doeasn't cover the "cancel" scenario in interactive vc transtions, but works fine for non interactive.
-//  REFERENCE: https://devforums.apple.com/thread/225533?tstart=0
-//
+        //        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didBeginAppearanceTransition:) name:UIViewControllerBeginAppearanceTransitionNotification object:nil];
+        //        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didEndAppearanceTansition:) name:UIViewControllerEndAppearanceTransitionNotification object:nil];
+        //  due to potential Apple Bug thah causes the endAppearanceTransition not to be callend on UINavigationController childViewControllers
+        //  we have to use will/did appear callbacks - however this doeasn't cover the "cancel" scenario in interactive vc transtions, but works fine for non interactive.
+        //  REFERENCE: https://devforums.apple.com/thread/225533?tstart=0
+        //
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didBeginAppearanceTransition:) name:UIViewControllerViewWillAppearNotification object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didBeginAppearanceTransition:) name:UIViewControllerViewWillDisappearNotification object:nil];        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didBeginAppearanceTransition:) name:UIViewControllerViewWillDisappearNotification object:nil];
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didEndAppearanceTansition:) name:UIViewControllerViewDidAppearNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didEndAppearanceTansition:) name:UIViewControllerViewDidDisappearNotification object:nil];
@@ -71,7 +71,7 @@ const NSString * kCategoryName = @"tf_transitionIsolated";
         // we don't have to remove these objects as they are stored internally as week pointers
         [[[self class] isolatedOperationsTable] addObject:op];
         [self addOperation:op];
-        NSLog(@"%@ %@, current transitions stack size: %lu", NSStringFromClass([self class]), NSStringFromSelector(_cmd), (unsigned long)[[[self class] transitionOperationQueue] operationCount]);
+        //        NSLog(@"%@ %@, current transitions stack size: %lu", NSStringFromClass([self class]), NSStringFromSelector(_cmd), (unsigned long)[[[self class] transitionOperationQueue] operationCount]);
     }
 }
 
@@ -131,20 +131,20 @@ const NSString * kCategoryName = @"tf_transitionIsolated";
         TFExternalWaitingOperation * transitionOperationWrapper = [[TFExternalWaitingOperation alloc] init];
         for (NSOperation * op in [[self isolatedOperationsTable] allObjects]) {
             if (op.isExecuting || op.isFinished || op.isCancelled) continue;
-
+            
             [op addDependency:transitionOperationWrapper];
         }
-
+        
         [[self transitionOperationMapTable] setObject:transitionOperationWrapper forKey:key];
         [[self transitionOperationQueue] addOperation:transitionOperationWrapper];
-        NSLog(@"%@ (%@) %@, current transitions stack size: %lu", NSStringFromClass([self class]), kCategoryName, NSStringFromSelector(_cmd), (unsigned long)[[self transitionOperationQueue] operationCount]);
+        //        NSLog(@"%@ (%@) %@, current transitions stack size: %lu", NSStringFromClass([self class]), kCategoryName, NSStringFromSelector(_cmd), (unsigned long)[[self transitionOperationQueue] operationCount]);
     }
 }
 
 + (void)didEndAppearanceTansition:(NSNotification *)notification
 {
     UIViewController * vc = notification.object;
-        NSString * key = [@(vc.hash) description];
+    NSString * key = [@(vc.hash) description];
     
     @synchronized([self isolatedOperationsTable]) {
         TFExternalWaitingOperation * transitionOperation = [[self transitionOperationMapTable] objectForKey:key];
@@ -165,7 +165,7 @@ const NSString * kCategoryName = @"tf_transitionIsolated";
         }
         
         [[self transitionOperationMapTable] removeObjectForKey:key];
-        NSLog(@"%@ (%@) %@, current transitions stack size: %lu", NSStringFromClass([self class]), kCategoryName, NSStringFromSelector(_cmd), (unsigned long)[[self transitionOperationQueue] operationCount]);
+        //        NSLog(@"%@ (%@) %@, current transitions stack size: %lu", NSStringFromClass([self class]), kCategoryName, NSStringFromSelector(_cmd), (unsigned long)[[self transitionOperationQueue] operationCount]);
     }
 }
 
