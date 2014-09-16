@@ -1,4 +1,5 @@
 target 'TFUtils', :exclusive => true do
+  pod 'TFLogger', :path => "../../TFLogger/TFLogger.podspec"
   pod "TFUtils", :path => "../"
 end
 

@@ -25,7 +25,6 @@
 #import "UIViewController+tf_appearanceNotifications.h"
 #import <objc/runtime.h>
 
-
 NSString * const UIViewControllerViewWillAppearNotification     = @"UIViewControllerViewWillAppearNotification";
 NSString * const UIViewControllerViewDidAppearNotification      = @"UIViewControllerViewDidAppearNotification";
 NSString * const UIViewControllerViewWillDisappearNotification  = @"UIViewControllerViewWillDisappearNotification";
@@ -97,6 +96,7 @@ NSString * const UIViewControllerAppearanceNotificationAppearingKey = @"isAppear
 {
     [self tf_viewDidAppear:animated];
     
+    NSLog(@"[i] tfutils appear");
     [[NSNotificationCenter defaultCenter] postNotificationName:UIViewControllerViewDidAppearNotification object:self userInfo:@{UIViewControllerAppearanceNotificationAnimatedKey: @(animated)}];
 }
 

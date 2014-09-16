@@ -19,4 +19,6 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '7.0'
   s.requires_arc = true
   s.source_files = 'Pod/**/*.{h,m}'
+  s.dependency   'TFLogger'
+  s.prefix_header_contents = '#if NSLOG_TO_TFLOGGER_ENABLED', '#import <TFLogger/TFLogger.h>',  '#define NSLog(...) NSLogToTFLoggerAdapter(__VA_ARGS__)', '#endif'
 end
