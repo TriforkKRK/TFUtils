@@ -15,8 +15,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    TFLogInfo(@"aa");
-    //TFLoggerAddHandler(TFASLLogHandler);
+    TFLoggerSetFilter(^BOOL(NSString *module, int level, NSString *location, NSString *msg) {
+        if ([module isEqualToString:@"TFUtilsExample"]) return YES;
+        
+        return [location rangeOfString:@"NSOperationQueue+tf_transitionIsolated"].location != NSNotFound;
+    });
+    TFLogInfo(@"aa");   // no module name
     
     UIViewController * vc = [[UIViewController alloc] init];
     self.window.rootViewController = vc;

@@ -137,7 +137,7 @@ const NSString * kCategoryName = @"tf_transitionIsolated";
         
         [[self transitionOperationMapTable] setObject:transitionOperationWrapper forKey:key];
         [[self transitionOperationQueue] addOperation:transitionOperationWrapper];
-        NSLog(@"[d] Did begin transition, stack size: %lu", (unsigned long)[[[self class] transitionOperationQueue] operationCount]);
+        NSLog(@"[d] Did begin transition (vc: %@) stack size: %lu", vc, (unsigned long)[[[self class] transitionOperationQueue] operationCount]);
     }
 }
 
@@ -165,7 +165,7 @@ const NSString * kCategoryName = @"tf_transitionIsolated";
         }
         
         [[self transitionOperationMapTable] removeObjectForKey:key];
-        NSLog(@"[d] Did end transition, stack size: %lu", (unsigned long)[[[self class] transitionOperationQueue] operationCount]);
+        NSLog(@"[d] Did end transition (vc: %@), stack size: %lu", vc, (unsigned long)[[[self class] transitionOperationQueue] operationCount]);
     }
 }
 
