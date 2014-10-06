@@ -7,12 +7,28 @@
 //
 
 #import "TFAppDelegate.h"
+#import <TFLogger/TFLogger.h>
+
+#define NSLog(...) NSLogToTFLoggerAdapter(@"TFUtilsExample",__VA_ARGS__)
 
 @implementation TFAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    TFLogInfo(@"aa");
+    //TFLoggerAddHandler(TFASLLogHandler);
+    
+    UIViewController * vc = [[UIViewController alloc] init];
+    self.window.rootViewController = vc;
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        UIViewController * vc2 = [[UIViewController alloc] init];
+        vc2.view.backgroundColor = [UIColor redColor];
+        [vc presentViewController:vc2 animated:YES completion:^{
+            NSLog(@"[i] presented");
+        }];
+    });
+    
     return YES;
 }
 							

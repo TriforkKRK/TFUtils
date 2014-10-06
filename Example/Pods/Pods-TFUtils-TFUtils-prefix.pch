@@ -3,3 +3,7 @@
 #endif
 
 #import "Pods-TFUtils-environment.h"
+#if NSLOG_TO_TFLOGGER_ENABLED
+#import <TFLogger/TFLogger.h>
+#define NSLog(...) NSLogToTFLoggerAdapter(@"TFUtils",__VA_ARGS__)
+#endif

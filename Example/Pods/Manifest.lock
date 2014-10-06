@@ -2,8 +2,7 @@ PODS:
   - Expecta (0.3.1)
   - Specta (0.2.1)
   - TFLogger (0.0.1)
-  - TFUtils (0.0.2):
-    - TFLogger
+  - TFUtils (0.0.2)
 
 DEPENDENCIES:
   - Expecta
@@ -21,6 +20,6 @@ SPEC CHECKSUMS:
   Expecta: 03aabd0a89d8dea843baecb19a7fd7466a69a31d
   Specta: 9141310f46b1f68b676650ff2854e1ed0b74163a
   TFLogger: d9ee7e1deae7dc5a34d6250bef1015cb2fe05c55
-  TFUtils: 2a6df587a535caf032d98eb78482ec103ea67038
+  TFUtils: 2b77f8a61ae56d607a9c777a9caf232008842c7a
 
 COCOAPODS: 0.33.1

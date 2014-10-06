@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "823A8CB7D83047FAA20B062B"
+               BlueprintIdentifier = "31C26DD934554E5BA0B17550"
                BuildableName = "libPods-TFUtils-TFLogger.a"
                BlueprintName = "Pods-TFUtils-TFLogger"
                ReferencedContainer = "container:Pods.xcodeproj">

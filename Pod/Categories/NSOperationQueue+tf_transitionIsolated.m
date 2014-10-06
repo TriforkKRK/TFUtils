@@ -71,7 +71,7 @@ const NSString * kCategoryName = @"tf_transitionIsolated";
         // we don't have to remove these objects as they are stored internally as week pointers
         [[[self class] isolatedOperationsTable] addObject:op];
         [self addOperation:op];
-        //        NSLog(@"%@ %@, current transitions stack size: %lu", NSStringFromClass([self class]), NSStringFromSelector(_cmd), (unsigned long)[[[self class] transitionOperationQueue] operationCount]);
+        NSLog(@"[d] Added transition isolated operation: %@, stack size: %lu", op, (unsigned long)[[[self class] transitionOperationQueue] operationCount]);
     }
 }
 
@@ -123,7 +123,7 @@ const NSString * kCategoryName = @"tf_transitionIsolated";
     
     @synchronized([self isolatedOperationsTable]) {
         if ([[self transitionOperationMapTable] objectForKey:key] != nil) {
-            NSLog(@"WARNING: %@ (%@) %@, Transition operation already exists for view controller: %@. It may be because of unbalanced calls to begin/end appearance transition (eg. you're missing viewDidDissapear or viewWillAppear is called twice). Bypassing!", NSStringFromClass([self class]), kCategoryName, NSStringFromSelector(_cmd), vc);
+            NSLog(@"[w] Transition operation already exists for view controller: %@. It may be because of unbalanced calls to begin/end appearance transition (eg. you're missing viewDidDissapear or viewWillAppear is called twice). Bypassing!", vc);
             return;
         }
         
@@ -137,7 +137,7 @@ const NSString * kCategoryName = @"tf_transitionIsolated";
         
         [[self transitionOperationMapTable] setObject:transitionOperationWrapper forKey:key];
         [[self transitionOperationQueue] addOperation:transitionOperationWrapper];
-        //        NSLog(@"%@ (%@) %@, current transitions stack size: %lu", NSStringFromClass([self class]), kCategoryName, NSStringFromSelector(_cmd), (unsigned long)[[self transitionOperationQueue] operationCount]);
+        NSLog(@"[d] Did begin transition, stack size: %lu", (unsigned long)[[[self class] transitionOperationQueue] operationCount]);
     }
 }
 
@@ -149,7 +149,7 @@ const NSString * kCategoryName = @"tf_transitionIsolated";
     @synchronized([self isolatedOperationsTable]) {
         TFExternalWaitingOperation * transitionOperation = [[self transitionOperationMapTable] objectForKey:key];
         if (transitionOperation == nil) {
-            NSLog(@"WARNING: %@ (%@) %@, Transition operation not found for view controller: %@. It may be because of unbalanced calls to begin/end appearance transition (eg. you're missing viewWillAppear or viewDidDissapear is called twice). Bypassing!", NSStringFromClass([self class]), kCategoryName, NSStringFromSelector(_cmd), vc);
+            NSLog(@"[w] Transition operation not found for view controller: %@. It may be because of unbalanced calls to begin/end appearance transition (eg. you're missing viewWillAppear or viewDidDissapear is called twice). Bypassing!", vc);
             [[self transitionOperationMapTable] removeObjectForKey:key];
             return;
         }
@@ -165,7 +165,7 @@ const NSString * kCategoryName = @"tf_transitionIsolated";
         }
         
         [[self transitionOperationMapTable] removeObjectForKey:key];
-        //        NSLog(@"%@ (%@) %@, current transitions stack size: %lu", NSStringFromClass([self class]), kCategoryName, NSStringFromSelector(_cmd), (unsigned long)[[self transitionOperationQueue] operationCount]);
+        NSLog(@"[d] Did end transition, stack size: %lu", (unsigned long)[[[self class] transitionOperationQueue] operationCount]);
     }
 }
 

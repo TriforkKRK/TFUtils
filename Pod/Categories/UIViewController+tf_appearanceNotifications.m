@@ -87,6 +87,7 @@ NSString * const UIViewControllerAppearanceNotificationAppearingKey = @"isAppear
 
 - (void)tf_viewWillAppear:(BOOL)animated
 {
+    NSLog(@"[i] viewWillAppear (vc: %@)", self);
     [[NSNotificationCenter defaultCenter] postNotificationName:UIViewControllerViewWillAppearNotification object:self userInfo:@{UIViewControllerAppearanceNotificationAnimatedKey: @(animated)}];
     
     [self tf_viewWillAppear:animated];
@@ -96,12 +97,13 @@ NSString * const UIViewControllerAppearanceNotificationAppearingKey = @"isAppear
 {
     [self tf_viewDidAppear:animated];
     
-    NSLog(@"[i] tfutils appear");
+    NSLog(@"[i] viewDidAppear (vc: %@)", self);
     [[NSNotificationCenter defaultCenter] postNotificationName:UIViewControllerViewDidAppearNotification object:self userInfo:@{UIViewControllerAppearanceNotificationAnimatedKey: @(animated)}];
 }
 
 - (void)tf_viewWillDisappear:(BOOL)animated
 {
+    NSLog(@"[i] viewWillDisappear (vc: %@)", self);
     [[NSNotificationCenter defaultCenter] postNotificationName:UIViewControllerViewWillDisappearNotification object:self userInfo:@{UIViewControllerAppearanceNotificationAnimatedKey: @(animated)}];
     
     [self tf_viewWillDisappear:animated];
@@ -110,7 +112,8 @@ NSString * const UIViewControllerAppearanceNotificationAppearingKey = @"isAppear
 - (void)tf_viewDidDisappear:(BOOL)animated
 {
     [self tf_viewDidDisappear:animated];
-    
+
+    NSLog(@"[i] viewDidDisappear (vc: %@)", self);
     [[NSNotificationCenter defaultCenter] postNotificationName:UIViewControllerViewDidDisappearNotification object:self userInfo:@{UIViewControllerAppearanceNotificationAnimatedKey: @(animated)}];
 }
 

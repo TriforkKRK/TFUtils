@@ -29,11 +29,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-Tests-TFLogger.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-Tests-TFUtils.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -47,42 +42,37 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0153AFED5E5B405980477B0C</key>
+		<key>30AD8656BC0C4AFEB93D1D9A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>094E858B670540DEA97CC6DD</key>
+		<key>31C26DD934554E5BA0B17550</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>431C02754F8F4D7EA6B6AC49</key>
+		<key>5DB95B2FA07E49ACB439C33D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7BB0A88F29F14EB8AD97F366</key>
+		<key>6D002FC2003B4A47A2F6CE12</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>823A8CB7D83047FAA20B062B</key>
+		<key>A312A908F129477C874E2F61</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B04CC1781B0243F1AA680699</key>
+		<key>E1346A2774F34EAB9FC2ECFA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BE8AC241DE6D424D88D5D6C9</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FADFB840C88F44C8BE139FAD</key>
+		<key>EA5C52EF0D074780A7B21371</key>
 		<dict>
 			<key>primary</key>
 			<true/>
