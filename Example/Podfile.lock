@@ -7,12 +7,13 @@ PODS:
 DEPENDENCIES:
   - Expecta
   - Specta (~> 0.2.1)
-  - TFLogger (from `../../TFLogger/TFLogger.podspec`)
+  - TFLogger (from `https://github.com/TriforkKRK/TFLogger.git`, commit `3b2972f9e2e4d2be98b9561bd469ba1f2c3ecf06`)
   - TFUtils (from `../`)
 
 EXTERNAL SOURCES:
   TFLogger:
-    :path: ../../TFLogger/TFLogger.podspec
+    :commit: 3b2972f9e2e4d2be98b9561bd469ba1f2c3ecf06
+    :git: https://github.com/TriforkKRK/TFLogger.git
   TFUtils:
     :path: ../
 
@@ -20,6 +21,6 @@ SPEC CHECKSUMS:
   Expecta: 03aabd0a89d8dea843baecb19a7fd7466a69a31d
   Specta: 9141310f46b1f68b676650ff2854e1ed0b74163a
   TFLogger: d9ee7e1deae7dc5a34d6250bef1015cb2fe05c55
-  TFUtils: 2b77f8a61ae56d607a9c777a9caf232008842c7a
+  TFUtils: 852549691c777d3b1e621105a453e95e6a3c82da
 
 COCOAPODS: 0.33.1
