@@ -1,6 +1,5 @@
 target 'TFUtils', :exclusive => true do
-  pod "TFLogger", :git => "https://github.com/TriforkKRK/TFLogger.git"
-  #pod 'TFLogger', :path => "../../TFLogger"
+  pod "TFLogger"
   pod "TFUtils", :path => "../"
 
     post_install do |installer_representation|
