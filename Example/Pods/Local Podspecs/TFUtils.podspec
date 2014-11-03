@@ -20,5 +20,5 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.source_files = 'Pod/**/*.{h,m}'
 
-  s.prefix_header_contents = '#if NSLOG_TO_TFLOGGER_ENABLED', '#import <TFLogger/TFLogger.h>',  '#define NSLog(...) NSLogToTFLoggerAdapter(@"TFUtils",__VA_ARGS__)', '#endif'
+  s.prefix_header_contents = '#if NSLOG_TO_TFLOGGER_ENABLED', '#import <TFLogger/NSLogVisualFormat.h>',  '#define NSLog(...) NSLogToTFLoggerAdapter(@"TFUtils",__VA_ARGS__)', '#endif'
 end

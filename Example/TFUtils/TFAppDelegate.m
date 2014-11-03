@@ -8,6 +8,7 @@
 
 #import "TFAppDelegate.h"
 #import <TFLogger/TFLogger.h>
+#import <TFLogger/NSLogVisualFormat.h>
 
 #define NSLog(...) NSLogToTFLoggerAdapter(@"TFUtilsExample",__VA_ARGS__)
 
@@ -15,10 +16,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    TFLoggerSetFilter(^BOOL(NSString *module, int level, NSString *location, NSString *msg) {
-        if ([module isEqualToString:@"TFUtilsExample"]) return YES;
-        
-        return [location rangeOfString:@"NSOperationQueue+tf_transitionIsolated"].location != NSNotFound;
+    TFLoggerSetBaselineLevel(ASL_LEVEL_DEBUG);
+    TFLoggerSetFilter(^BOOL(TFLogDescription * desc) {
+        if ([desc.module isEqualToString:@"TFUtilsExample"]) return YES;
+
+        return [desc.file rangeOfString:@"NSOperationQueue+tf_transitionIsolated"].location != NSNotFound;
     });
     TFLogInfo(@"aa");   // no module name
     

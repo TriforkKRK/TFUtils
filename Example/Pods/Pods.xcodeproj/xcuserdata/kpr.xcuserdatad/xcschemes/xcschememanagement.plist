@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-TFUtils-CocoaLumberjack.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-TFUtils-TFLogger.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -42,37 +47,42 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>30AD8656BC0C4AFEB93D1D9A</key>
+		<key>16CEC45E5CF44FB0A56DC972</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>31C26DD934554E5BA0B17550</key>
+		<key>36BCA136600D41A3B49CA657</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5DB95B2FA07E49ACB439C33D</key>
+		<key>62476B105F9D47308FC2900F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6D002FC2003B4A47A2F6CE12</key>
+		<key>88DC5D0044E5457D938B5621</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A312A908F129477C874E2F61</key>
+		<key>C5E453742C7D43869D8BB5BF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E1346A2774F34EAB9FC2ECFA</key>
+		<key>D034A03B01D84CF0A677B54D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EA5C52EF0D074780A7B21371</key>
+		<key>ECCECF61C7DC412E97C309BD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EF151E65CD2B42A29F9585BA</key>
 		<dict>
 			<key>primary</key>
 			<true/>

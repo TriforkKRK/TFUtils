@@ -4,6 +4,6 @@
 
 #import "Pods-Tests-environment.h"
 #if NSLOG_TO_TFLOGGER_ENABLED
-#import <TFLogger/TFLogger.h>
+#import <TFLogger/NSLogVisualFormat.h>
 #define NSLog(...) NSLogToTFLoggerAdapter(@"TFUtils",__VA_ARGS__)
 #endif
