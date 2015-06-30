@@ -17,21 +17,30 @@ Eg. there is a CocoaLumberjack adapter available.
 
 
 TFLogger is very useful to categorize logged information according to the level of importance they convey. It enables you to do that by using the following macro definitions:
-`TFLogEmergency` &nbsp;&nbsp;&nbsp;- The highest priority, usually reserved for catastrophic failures and reboot notices
+
+`TFLogEmergency` &nbsp;&nbsp;&nbsp;- The highest priority, usually reserved for catastrophic failures and reboot notices.
+
 `TFLogAlert` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-  A serious failure in a key system.
+
 `TFLogCritical` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- A failure in a key system.
+
 `TFLogError` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Something has failed.
+
 `TFLogWarning` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Something is amiss and might fail if not corrected.
+
 `TFLogNotice` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Things of moderate interest to the user or administrator.
+
 `TFLogInfo` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- The lowest priority that you would normally log, and purely informational in nature.
-`TFLogDebug` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- The lowest priority, and normally not logged except for messages from the kernel.
+
+`TFLogDebug` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- The lowest priority, and normally not logged except for messages from the kernel. 
 
 
 The log level can be adjusted at any time using `TFLoggerSetBaselineLevel(NSInteger level)`.
 Information logged on a lower level, than currently set, will be taken out.
 
+
 ##### NOTE
-The above log macros are meant to be used on application level. In case you work on a library (eg. cocoapod, module) please refer to section
+The above log macros are meant to be used on application level. In case you work on a library (eg. cocoapod, module) please refer to [NSLog visual format](#nslog-visual-format) and [External library integration](#external-library-integration) sections.
 
 
 ## Output forwarding
@@ -59,6 +68,7 @@ NSLog is a nice tool, it is part of `Foundation` framework and because of that i
 - There is no way to define logging level - it's always ERROR. Usually you will need DEBUG, maybe WARNING.
 - All NSLogs are forwarded to ASL thus they polute device logs.
 - Xcode doesn't display the log levels
+- Xcode doesn't display any information that would be helpfull to locate where the log message become from (eg. file, line number)
 
 To address the above issues TFLogger is able to swizzle default NSLog implementation.
 To do so include the following line in your source code:
@@ -79,12 +89,13 @@ The key feature here is NSLog visual formatting, which you can use to change log
     NSLog(@"[d] something) - ASL_LEVEL_DEBUG;
 
 ##### Note:
-The above mechanism is especially meant to use from external cocoapod libraries with swizzled NSLog (See the next chapter).
+The above mechanism is especially meant to use from external cocoapod libraries with swizzled NSLog.
+For additional information see the next chapter: [External library integration](#external-library-integration).
 Of course you can also swizzle NSLog application wide - this way all NSLogs in the app will be nicely integrated with the whole TFLogger flow.
 
 ## External library integration
 
-TFLogger may be integrated with other modules of your app using NSLog visual format. That means there won't be direct dependency to logging facility in your cocoapod library. Decision which logging framework one would like to use is postopned to a moment when you actually start using the library. At this time you can simply stay with default TFLogger implementation or easily forward all the logs to your favourite logging library (using your own block handler, CocoaLumberjack has a predefined handler: `TFCocoaLumberjackHandler`).
+TFLogger may be integrated with other modules of your app using [NSLog visual format](#nslog-visual-format). That means there won't be direct dependency to logging facility in your cocoapod library. Decision which logging framework one would like to use is postopned to a moment when you actually start using the library. At this time you can simply stay with default TFLogger implementation or easily forward all the logs to your favourite logging library (using your own block handler, CocoaLumberjack has a predefined handler: `TFCocoaLumberjackHandler`).
 
 In order to have this kind of On Demand Integration with TFLogger in your cocoapod library - do the following:
 
@@ -127,6 +138,15 @@ TFLogger is available through [CocoaPods](http://cocoapods.org). To install it, 
     pod "TFLogger"
 
 ## Changelog
+
+### 1.0.3
+- Bugfix on multithreading
+
+### 1.0.2
+- Fixed locking issue that occured on iOS7 devices
+
+### 1.0.1
+- Fixed CocoaLumberjack dependency to point to ~> 1.9
 
 ### 1.0
 - Initial release
