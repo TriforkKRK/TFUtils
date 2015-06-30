@@ -1,0 +1,25 @@
+{
+  "name": "TFUtils",
+  "version": "0.0.3",
+  "summary": "A set of utility classes and categories.",
+  "homepage": "https://github.com/TriforkKRK/TFUtils",
+  "license": "Apache v2",
+  "authors": {
+    "Krzysztof Profic": "kprofic@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/TriforkKRK/TFUtils.git",
+    "tag": "0.0.3"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "source_files": "Pod/**/*.{h,m}",
+  "prefix_header_contents": [
+    "#if NSLOG_TO_TFLOGGER_ENABLED",
+    "#import <TFLogger/NSLogVisualFormat.h>",
+    "#define NSLog(...) NSLogToTFLoggerAdapter(@\"TFUtils\",__VA_ARGS__)",
+    "#endif"
+  ]
+}
