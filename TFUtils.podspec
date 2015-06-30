@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "TFUtils"
-  s.version          = "0.0.4"
+  s.version          = "0.0.3"
   s.summary          = "A set of utility classes and categories."
   s.homepage         = "https://github.com/TriforkKRK/TFUtils"
   s.license          = 'Apache v2'
