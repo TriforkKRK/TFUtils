@@ -1,11 +1,27 @@
 PODS:
-  - Expecta (0.3.1)
+  - CocoaLumberjack (1.9.2):
+    - CocoaLumberjack/Extensions (= 1.9.2)
+  - CocoaLumberjack/Core (1.9.2)
+  - CocoaLumberjack/Extensions (1.9.2):
+    - CocoaLumberjack/Core
+  - Expecta (1.0.0)
   - Specta (0.2.1)
-  - TFUtils (0.1.0)
+  - TFLogger (1.0.3):
+    - TFLogger/CocoaLumberjackHandler (= 1.0.3)
+    - TFLogger/Core (= 1.0.3)
+    - TFLogger/NSLogVisualFormat (= 1.0.3)
+  - TFLogger/CocoaLumberjackHandler (1.0.3):
+    - CocoaLumberjack (~> 1.9)
+    - TFLogger/Core
+  - TFLogger/Core (1.0.3)
+  - TFLogger/NSLogVisualFormat (1.0.3):
+    - TFLogger/Core
+  - TFUtils (0.0.3)
 
 DEPENDENCIES:
   - Expecta
   - Specta (~> 0.2.1)
+  - TFLogger
   - TFUtils (from `../`)
 
 EXTERNAL SOURCES:
@@ -13,8 +29,10 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  Expecta: 03aabd0a89d8dea843baecb19a7fd7466a69a31d
-  Specta: 9141310f46b1f68b676650ff2854e1ed0b74163a
-  TFUtils: 94072ae5b9e2bbbb7ad464a8b364eef87c773a31
+  CocoaLumberjack: 628fca2e88ef06f7cf6817309aa405f325d9a6fa
+  Expecta: 32604574add2c46a36f8d2f716b6c5736eb75024
+  Specta: 15a276a6343867b426d5ed135d5aa4d04123a573
+  TFLogger: 4feb1f49176c299b79991fe00e5574cf8f0fc758
+  TFUtils: 76117ceefcccc44044113d2a04dc71ff8f6c8259
 
-COCOAPODS: 0.33.1
+COCOAPODS: 0.37.2
