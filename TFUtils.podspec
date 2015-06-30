@@ -9,11 +9,11 @@
 
 Pod::Spec.new do |s|
   s.name             = "TFUtils"
-  s.version          = "0.0.3"
+  s.version          = "0.0.4"
   s.summary          = "A set of utility classes and categories."
   s.homepage         = "https://github.com/TriforkKRK/TFUtils"
   s.license          = 'Apache v2'
-  s.author           = { "Krzysztof Profic" => "kprofic@gmail.com" }
+  s.author           = { "Krzysztof Profic" => "kprofic@gmail.com", "Wojciech Nagrodzki" => "w.nagrodzki@gmail.com" }
   s.source           = { :git => "https://github.com/TriforkKRK/TFUtils.git", :tag => s.version.to_s }
 
   s.platform     = :ios, '7.0'
